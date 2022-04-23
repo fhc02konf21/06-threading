@@ -4,7 +4,7 @@ public class PrimValidation {
 
     private final long number;
 
-    private boolean isPrim;
+    public boolean isPrim;
     public PrimValidation(long number) {
         this.number = number;
     }
