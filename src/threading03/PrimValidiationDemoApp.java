@@ -29,6 +29,12 @@ public class PrimValidiationDemoApp {
         th6.start();
         th7.start();
 
+
+        System.out.println("prim6 - vorher = " + prim6);
+        th6.join();
+        System.out.println("prim6 - nach join = " + prim6);
+        
+        
         th1.join();
         th2.join();
         th3.join();
