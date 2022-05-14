@@ -4,9 +4,10 @@ public class PrimValidation implements Runnable {
 
     private final long number;
 
-    public boolean isPrim;
+    public PrimStatus isPrim;
     public PrimValidation(long number) {
         this.number = number;
+        isPrim = PrimStatus.Unkown;
     }
 
     @Override
@@ -19,13 +20,18 @@ public class PrimValidation implements Runnable {
 
     private void validate(){
 
-        isPrim = true;
+        isPrim = PrimStatus.Unkown;
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
-                isPrim = false;
+                isPrim = PrimStatus.IsNotPrim;
                 break;
             }
         }
+
+        if (isPrim == PrimStatus.Unkown) {
+            isPrim = PrimStatus.IsPrim;
+        }
+
         System.out.println("done:" + number + " is a Prim: " + isPrim);
     }
 

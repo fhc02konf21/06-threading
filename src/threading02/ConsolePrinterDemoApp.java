@@ -14,8 +14,20 @@ public class ConsolePrinterDemoApp {
         threadA.start();
         threadB.start();
 
-       // threadA.join();
-       // threadB.join();
+        Thread.sleep(5000);
+        // jetzt komme ich drauf, ich würde gerne abbrechen
+        System.out.println("jetzt abbrechen");
+        //threadA.stop(); => unhöfliches stoppen
+        //threadB.stop(); => sollte nicht mehr verwendet werden
+
+        //cpA.pleaseStop = true; // freundliches stoppen
+        //cpB.pleaseStop = true;
+
+        threadA.interrupt();
+        threadB.interrupt();
+
+        threadA.join();
+        threadB.join();
         System.out.println("Programm ist beendet");
     }
 }
